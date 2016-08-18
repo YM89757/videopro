@@ -1,5 +1,6 @@
 package com.example.yinm_pc.videopro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,7 +10,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.yinm_pc.videopro.view.ListVideoActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        initView();
+    }
+
+    private void initView() {
+        findViewById(R.id.list_video).setOnClickListener(this);
     }
 
     @Override
@@ -48,5 +58,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.list_video:
+                intent = new Intent(this, ListVideoActivity.class);
+                break;
+        }
+        if (intent != null)
+            startActivity(intent);
     }
 }
