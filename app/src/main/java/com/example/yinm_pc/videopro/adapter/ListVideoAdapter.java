@@ -34,7 +34,7 @@ public class ListVideoAdapter extends RecyclerView.Adapter<ListVideoAdapter.MyVi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         holder.tv.setText(date.get(position).getVideoString());
-        if (mOnItemClickLitener !=null){
+        if (mOnItemClickLitener != null) {
             holder.tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

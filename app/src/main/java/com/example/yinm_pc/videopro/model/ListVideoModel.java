@@ -26,25 +26,25 @@ public class ListVideoModel implements ListVideoModelListener {
                     @Override
                     public void onBefore(Request request, int id) {
                         listener.onBefore(url, request, id);
-                        Log.i(TAG, "onBefore  "+id+"   " + url + "...");
+                        Log.i(TAG, "onBefore  " + id + "   " + url + "...");
                     }
 
                     @Override
                     public void inProgress(float progress, long total, int id) {
                         listener.onProgress(url, progress, total, id);
-                        Log.i(TAG, "inProgress  "+id+"   " + url + "     progress:" +progress+"   total:"+total);
+                        Log.i(TAG, "inProgress  " + id + "   " + url + "     progress:" + progress + "   total:" + total);
                     }
 
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         listener.onFailure(url, "", e);
-                        Log.i(TAG,  "onError  "+id+"   " + url + "...");
+                        Log.i(TAG, "onError  " + id + "   " + url + "...");
                     }
 
                     @Override
                     public void onResponse(File file, int id) {
                         listener.onSuccess(url, file.getAbsolutePath());
-                        Log.i(TAG,  "onResponse  "+id+"   " + url + "..."+file.getAbsolutePath());
+                        Log.i(TAG, "onResponse  " + id + "   " + url + "..." + file.getAbsolutePath());
                     }
                 });
     }

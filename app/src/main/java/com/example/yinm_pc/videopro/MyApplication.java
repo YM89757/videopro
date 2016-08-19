@@ -18,19 +18,16 @@ import okhttp3.OkHttpClient;
 public class MyApplication extends Application {
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(10000L, TimeUnit.MILLISECONDS)
                 .readTimeout(10000L, TimeUnit.MILLISECONDS)
                 .addInterceptor(new LoggerInterceptor("TAG"))
-                .hostnameVerifier(new HostnameVerifier()
-                {
+                .hostnameVerifier(new HostnameVerifier() {
                     @Override
-                    public boolean verify(String hostname, SSLSession session)
-                    {
+                    public boolean verify(String hostname, SSLSession session) {
                         return true;
                     }
                 })
