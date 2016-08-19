@@ -8,25 +8,31 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.example.yinm_pc.videopro.Bean.ListVideoBean;
+import com.example.yinm_pc.videopro.bean.ListVideoBean;
 import com.example.yinm_pc.videopro.R;
 import com.example.yinm_pc.videopro.adapter.ListVideoAdapter;
+import com.example.yinm_pc.videopro.presenter.ListVideoPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by zjq on 16/8/18.
- */
-public class ListVideoActivity extends Activity implements ListVideoAdapter.OnItemClickLitener {
+
+public class ListVideoActivity extends Activity implements ListVideoAdapter.OnItemClickLitener, ListVideoListener
+
+{
     private RecyclerView recyclerView;
     private ArrayList<ListVideoBean> dateArr;
-    ListVideoAdapter adapter;
+    private ListVideoAdapter adapter;
+    private ListVideoPresenter listVideoPresenter;
     private static final String TAG = ListVideoActivity.class.getCanonicalName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listavideo);
+
+        listVideoPresenter = new ListVideoPresenter(this);
+
         initData();
         initView();
     }
@@ -47,10 +53,31 @@ public class ListVideoActivity extends Activity implements ListVideoAdapter.OnIt
             listVideoBean.setVideoString("第" + i + "个视频");
             dateArr.add(listVideoBean);
         }
+        listVideoPresenter.loadVide("http://imgcdn.imdouya.com/100376_AB61A23A-9A63-430A-BC30-34DEC1A3205A_1471594887_-1401661027?imageView2/0/format/webp?vframe/png/offset/0/w/360/h/600");
     }
 
     @Override
     public void onItemClick(View view, int position) {
         Log.i(TAG, position + "...");
+    }
+
+    @Override
+    public void showProgress(String url, float progress, long total) {
+
+    }
+
+    @Override
+    public void addNews(List<ListVideoBean> newsList) {
+
+    }
+
+    @Override
+    public void hideProgress(String url) {
+
+    }
+
+    @Override
+    public void showLoadFailMsg(String url) {
+
     }
 }

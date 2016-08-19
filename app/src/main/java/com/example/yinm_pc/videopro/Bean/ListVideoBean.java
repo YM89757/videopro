@@ -1,8 +1,5 @@
-package com.example.yinm_pc.videopro.Bean;
+package com.example.yinm_pc.videopro.bean;
 
-/**
- * Created by zjq on 16/8/18.
- */
 public class ListVideoBean {
     private String path;
     private String videoString;
