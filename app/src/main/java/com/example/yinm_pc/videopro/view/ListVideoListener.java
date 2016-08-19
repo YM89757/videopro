@@ -1,7 +1,6 @@
 package com.example.yinm_pc.videopro.view;
 
-import com.example.yinm_pc.videopro.bean.ListVideoBean;
-
+import com.example.yinm_pc.videopro.Bean.ListVideoBean;
 import java.util.List;
 
 public interface ListVideoListener {

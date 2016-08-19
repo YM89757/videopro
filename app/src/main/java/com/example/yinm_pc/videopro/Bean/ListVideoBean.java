@@ -1,4 +1,4 @@
-package com.example.yinm_pc.videopro.bean;
+package com.example.yinm_pc.videopro.Bean;
 
 public class ListVideoBean {
     private String path;

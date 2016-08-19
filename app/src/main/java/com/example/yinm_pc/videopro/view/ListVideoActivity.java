@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.example.yinm_pc.videopro.bean.ListVideoBean;
+import com.example.yinm_pc.videopro.Bean.ListVideoBean;
 import com.example.yinm_pc.videopro.R;
 import com.example.yinm_pc.videopro.adapter.ListVideoAdapter;
 import com.example.yinm_pc.videopro.presenter.ListVideoPresenter;

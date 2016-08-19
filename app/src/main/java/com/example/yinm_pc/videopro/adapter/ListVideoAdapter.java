@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.yinm_pc.videopro.bean.ListVideoBean;
+import com.example.yinm_pc.videopro.Bean.ListVideoBean;
 import com.example.yinm_pc.videopro.R;
 
 import java.util.ArrayList;
