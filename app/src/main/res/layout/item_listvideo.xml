@@ -4,6 +4,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <com.example.yinm_pc.videopro.customview.TextureVideoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_list_video"/>
     <TextView
         android:id="@+id/item_list_video_text"
         android:layout_width="match_parent"
