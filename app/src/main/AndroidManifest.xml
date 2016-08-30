@@ -25,7 +25,8 @@
         </activity>
         <activity
             android:name=".view.ListVideoActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"/>
     </application>
 
 </manifest>

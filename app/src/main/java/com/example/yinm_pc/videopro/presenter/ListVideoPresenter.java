@@ -2,9 +2,13 @@ package com.example.yinm_pc.videopro.presenter;
 
 import android.util.Log;
 
+import com.example.yinm_pc.videopro.bean.ListVideoBean;
 import com.example.yinm_pc.videopro.model.ListVideoModel;
 import com.example.yinm_pc.videopro.model.ListVideoModelListener;
 import com.example.yinm_pc.videopro.view.ListVideoListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Request;
 
@@ -26,7 +30,13 @@ public class ListVideoPresenter extends BasePresenter implements ListVideoPresen
 
     @Override
     public void onSuccess(String url, String path) {
+        List<ListVideoBean> newsList = new ArrayList<>();
+        ListVideoBean listVideoBean = new ListVideoBean();
+        listVideoBean.setPath(path);
+        listVideoBean.setVideoString("刚下完的");
+        newsList.add(listVideoBean);
         listVideoListener.hideProgress(url);
+        listVideoListener.addNews(newsList);
     }
 
     @Override

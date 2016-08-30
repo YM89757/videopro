@@ -8,9 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.example.yinm_pc.videopro.Bean.ListVideoBean;
 import com.example.yinm_pc.videopro.R;
 import com.example.yinm_pc.videopro.adapter.ListVideoAdapter;
+import com.example.yinm_pc.videopro.bean.ListVideoBean;
 import com.example.yinm_pc.videopro.presenter.ListVideoPresenter;
 
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ import java.util.List;
 public class ListVideoActivity extends Activity implements ListVideoAdapter.OnItemClickLitener, ListVideoListener
 
 {
-    private RecyclerView recyclerView;
     private ArrayList<ListVideoBean> dateArr;
     private ListVideoAdapter adapter;
     private ListVideoPresenter listVideoPresenter;
@@ -38,7 +37,7 @@ public class ListVideoActivity extends Activity implements ListVideoAdapter.OnIt
     }
 
     private void initView() {
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         adapter = new ListVideoAdapter(this, dateArr);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         recyclerView.setAdapter(adapter);
@@ -51,14 +50,21 @@ public class ListVideoActivity extends Activity implements ListVideoAdapter.OnIt
         for (int i = 0; i < 50; i++) {
             ListVideoBean listVideoBean = new ListVideoBean();
             listVideoBean.setVideoString("第" + i + "个视频");
+            listVideoBean.setPath("/storage/emulated/0/textvideo.mp4");
             dateArr.add(listVideoBean);
         }
-        listVideoPresenter.loadVide("http://imgcdn.imdouya.com/100376_AB61A23A-9A63-430A-BC30-34DEC1A3205A_1471594887_-1401661027?imageView2/0/format/webp?vframe/png/offset/0/w/360/h/600");
+
     }
 
     @Override
     public void onItemClick(View view, int position) {
         Log.i(TAG, position + "...");
+        listVideoPresenter.loadVide("http://gslb.miaopai.com/stream/t~gB32Ha~0TyT3~Uju8bqQ__.mp4?vend=miaopai&");
+    }
+
+    @Override
+    public void onItemLongClick(View view, int position) {
+        adapter.removeData(position);
     }
 
     @Override
@@ -67,8 +73,8 @@ public class ListVideoActivity extends Activity implements ListVideoAdapter.OnIt
     }
 
     @Override
-    public void addNews(List<ListVideoBean> newsList) {
-
+    public void addNews(List<ListVideoBean> newList) {
+        adapter.addItem( newList);
     }
 
     @Override
